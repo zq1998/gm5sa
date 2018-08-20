@@ -6,17 +6,9 @@
     android:padding="10dp"
     android:background="?attr/colorPrimary">
     <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:id="@+id/icon_image"
         android:src="@mipmap/nav_icon"
         android:layout_centerInParent="true"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/emil"
-        android:layout_alignParentBottom="true"
-        android:text="gm5s"
-        android:textSize="14sp"/>
-
 </RelativeLayout>

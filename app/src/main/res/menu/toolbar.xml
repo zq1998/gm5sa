@@ -5,6 +5,7 @@
     <item
         android:id="@+id/settings"
         android:title="more"
+        android:orderInCategory="100"
         android:icon="@mipmap/ic_settings"
         app:showAsAction="never"/>
 </menu>

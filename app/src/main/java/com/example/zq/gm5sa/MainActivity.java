@@ -18,6 +18,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -33,13 +35,6 @@ public class MainActivity extends AppCompatActivity {
     private LayoutInflater mInflater;
     private List<String> mTitleList = new ArrayList<>();//页卡标题集合
     private List<View> mViewList = new ArrayList<>();//页卡视图集合
-    private String[] a={"省份生源图谱","优秀学子生源图谱","贫困学子生源图谱"};
-    private String[] b={"省份男女比例","学院男女比例"};
-    private String[] c={"各年级一卡通消费趋势","一卡通消费年级总计","一卡通消费性别总计","一卡通消费省份总计"};
-    private String[] d={"就业地市图谱","岗位性质统计"};
-    private String[] e={"各省份计划招生图谱","各地市计划招生图谱","留学生计划招生图谱"};
-    private String[] f={"各学院学生数量和占比"};
-    private String[] g={"学霸指数图谱","榜上有名"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,13 +49,19 @@ public class MainActivity extends AppCompatActivity {
         }
         initView();
         NavigationView navView=(NavigationView)findViewById(R.id.nav_view);
-        navView.setCheckedItem(R.id.nav_call);
+        navView.setCheckedItem(R.id.nav_shengyuan);
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                mDrawerLayout.closeDrawers();
+                switch (item.getItemId()){
+                    case R.id.nav_shengyuan:
+                        mDrawerLayout.closeDrawers();
+                        break;
+                    default:
+                        Toast.makeText(MainActivity.this,"sss",Toast.LENGTH_SHORT).show();
+                        break;
+                }
                 return true;
-
             }
         });
     }
@@ -121,70 +122,44 @@ public class MainActivity extends AppCompatActivity {
         mTabLayout = (TabLayout) findViewById(R.id.tabs);
 
         mInflater = LayoutInflater.from(this);
-        View view1=mInflater.inflate(R.layout.list, null);
-        ListView listview1 = view1.findViewById(R.id.listView_id);
-        ArrayAdapter<String> adapter1=new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_list_item_1,a);
-        listview1.setAdapter(adapter1);
-        listview1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch (position){
-                    case 0:
-                        Intent intent = new Intent(MainActivity.this,web.class);
-                        startActivity(intent);
-                        break;
-                    default:
-                }
-            }
-        });
-        View view2=mInflater.inflate(R.layout.list, null);
-        ListView listview2 = view2.findViewById(R.id.listView_id);
-        ArrayAdapter<String> adapter2=new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_list_item_1,a);
-        listview2.setAdapter(adapter2);
-        View view3=mInflater.inflate(R.layout.list, null);
-        ListView listview3 = view3.findViewById(R.id.listView_id);
-        ArrayAdapter<String> adapter3=new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_list_item_1,a);
-        listview3.setAdapter(adapter3);
-        View view4=mInflater.inflate(R.layout.list, null);
-        ListView listview4 = view4.findViewById(R.id.listView_id);
-        ArrayAdapter<String> adapter4=new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_list_item_1,a);
-        listview4.setAdapter(adapter4);
-        View view5=mInflater.inflate(R.layout.list, null);
-        ListView listview5 = view5.findViewById(R.id.listView_id);
-        ArrayAdapter<String> adapter5=new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_list_item_1,a);
-        listview5.setAdapter(adapter5);
-        View view6=mInflater.inflate(R.layout.list, null);
-        ListView listview6 = view6.findViewById(R.id.listView_id);
-        ArrayAdapter<String> adapter6=new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_list_item_1,a);
-        listview6.setAdapter(adapter6);
-        View view7=mInflater.inflate(R.layout.list, null);
-        ListView listview7 = view7.findViewById(R.id.listView_id);
-        ArrayAdapter<String> adapter7=new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_list_item_1,a);
-        listview7.setAdapter(adapter7);
+        View view1=mInflater.inflate(R.layout.web, null);
+        WebView webView1 = view1.findViewById(R.id.web_view);
+        webView1.getSettings().setJavaScriptEnabled(true);
+        webView1.getSettings().setSupportZoom(true);
+        webView1.getSettings().setBuiltInZoomControls(true);
+        webView1.getSettings().setDisplayZoomControls(false);
+        webView1.getSettings().setUseWideViewPort(true);
+        webView1.getSettings().setLoadWithOverviewMode(true);
+        webView1.loadUrl("http://b554.cn:8090/map/");
+        View view2=mInflater.inflate(R.layout.web, null);
+        WebView webView2 = view2.findViewById(R.id.web_view);
+        webView2.getSettings().setJavaScriptEnabled(true);
+        webView2.getSettings().setSupportZoom(true);
+        webView2.getSettings().setBuiltInZoomControls(true);
+        webView2.getSettings().setDisplayZoomControls(false);
+        webView2.getSettings().setUseWideViewPort(true);
+        webView2.getSettings().setLoadWithOverviewMode(true);
+        webView2.loadUrl("http://b554.cn:8090/map/");
+        View view3=mInflater.inflate(R.layout.web, null);
+        WebView webView3 = view3.findViewById(R.id.web_view);
+        webView3.getSettings().setJavaScriptEnabled(true);
+        webView3.getSettings().setSupportZoom(true);
+        webView3.getSettings().setBuiltInZoomControls(true);
+        webView3.getSettings().setDisplayZoomControls(false);
+        webView3.getSettings().setUseWideViewPort(true);
+        webView3.getSettings().setLoadWithOverviewMode(true);
+        webView3.loadUrl("http://b554.cn:8090/map/");
         //添加页卡视图
         mViewList.add(view1);
         mViewList.add(view2);
         mViewList.add(view3);
-        mViewList.add(view4);
-        mViewList.add(view5);
-        mViewList.add(view6);
-        mViewList.add(view7);
-        //添加页卡标题{"生源", "性别" ,"消费","就业","招生","学生数量","学霸指数"};
-        mTitleList.add("生源");
-        mTitleList.add("性别");
-        mTitleList.add("消费");
-        mTitleList.add("就业");
-        mTitleList.add("招生");
-        mTitleList.add("学生数量");
-        mTitleList.add("学霸指数");
+        mTitleList.add("省份生源图谱");
+        mTitleList.add("优秀学子生源图谱");
+        mTitleList.add("贫困学子生源图谱");
         mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);//设置tab模式
         mTabLayout.addTab(mTabLayout.newTab().setText(mTitleList.get(0)));//添加tab选项卡
         mTabLayout.addTab(mTabLayout.newTab().setText(mTitleList.get(1)));
         mTabLayout.addTab(mTabLayout.newTab().setText(mTitleList.get(2)));
-        mTabLayout.addTab(mTabLayout.newTab().setText(mTitleList.get(3)));
-        mTabLayout.addTab(mTabLayout.newTab().setText(mTitleList.get(4)));
-        mTabLayout.addTab(mTabLayout.newTab().setText(mTitleList.get(5)));
-        mTabLayout.addTab(mTabLayout.newTab().setText(mTitleList.get(6)));
         MyPagerAdapter mAdapter = new MyPagerAdapter(mViewList);
         mViewPager.setAdapter(mAdapter);//给ViewPager设置适配器
         mTabLayout.setupWithViewPager(mViewPager);//将TabLayout和ViewPager关联起来。
