@@ -78,7 +78,7 @@ public class jiuye_Activity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.nav_shengyuan:
-                        Intent intent=new Intent(jiuye_Activity.this,MainActivity.class);
+                        Intent intent=new Intent(jiuye_Activity.this,shengyuan.class);
                         startActivity(intent);
                         jiuye_Activity.this.finish();
                         break;

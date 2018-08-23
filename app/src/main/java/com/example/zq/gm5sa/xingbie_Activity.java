@@ -75,7 +75,7 @@ public class xingbie_Activity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.nav_shengyuan:
-                        Intent intent=new Intent(xingbie_Activity.this,MainActivity.class);
+                        Intent intent=new Intent(xingbie_Activity.this,shengyuan.class);
                         startActivity(intent);
                         xingbie_Activity.this.finish();
                         break;

@@ -75,7 +75,7 @@ public class xuesheng_Activity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.nav_shengyuan:
-                        Intent intent1=new Intent(xuesheng_Activity.this,MainActivity.class);
+                        Intent intent1=new Intent(xuesheng_Activity.this,shengyuan.class);
                         startActivity(intent1);
                         xuesheng_Activity.this.finish();
                         break;
