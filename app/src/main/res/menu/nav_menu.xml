@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:checkableBehavior="single">
+    <group android:checkableBehavior="single"
+        android:id="@+id/group1">
         <item
             android:id="@+id/nav_shengyuan"
             android:icon="@mipmap/nav_task"
@@ -29,6 +30,14 @@
             android:id="@+id/nav_jiuye"
             android:icon="@mipmap/nav_task"
             android:title="就业信息"/>
-
     </group>
+
+    <group
+        android:id="@+id/group2">
+        <item
+            android:id="@+id/nav_guanyu"
+            android:icon="@mipmap/guanyu"
+            android:title="关于我们"/>
+    </group>
+
 </menu>

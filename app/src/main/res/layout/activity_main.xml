@@ -1,40 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:id="@+id/drawer_layout">
-    <LinearLayout
+    android:background="@color/colorPrimary"
+    >
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        android:scaleType="centerCrop"
+        android:id="@+id/bing_pic_img"/>
+    <LinearLayout android:orientation="vertical"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_marginTop="240dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#8000">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="?attr/colorPrimary"
-            android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tabs"
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textSize="18sp"
+                android:textColor="#fff"
+                android:text="Account:"/>
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/account"
+                android:textColor="#fff"
+                android:hint="admin"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"/>
 
-        <android.support.v4.view.ViewPager
-            android:id="@+id/vp_view"
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/white" />
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textSize="18sp"
+                android:textColor="#fff"
+                android:text="Password"/>
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/password"
+                android:textColor="#fff"
+                android:hint="123456"
+                android:layout_gravity="center_vertical"
+                android:inputType="textPassword"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/remember_pass"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:textSize="18sp"
+                android:text="Remember password"/>
+
+        </LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textColor="#fff"
+            android:id="@+id/login"
+            android:text="login"/>
+
     </LinearLayout>
-    <android.support.design.widget.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="200dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        app:menu="@menu/nav_menu"
-        app:headerLayout="@layout/nav_header"/>
+</FrameLayout>
 
-</android.support.v4.widget.DrawerLayout>
