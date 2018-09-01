@@ -180,7 +180,7 @@ public class shengyuan extends  AppCompatActivity{
         webView1.getSettings().setDisplayZoomControls(false);
         webView1.getSettings().setUseWideViewPort(true);
         webView1.getSettings().setLoadWithOverviewMode(true);
-        webView1.loadUrl("http://b554.cn:8090/map/");
+        webView1.loadUrl("http://gm5s.tech:88/all.html");
         View view2=mInflater.inflate(R.layout.web, null);
         WebView webView2 = view2.findViewById(R.id.web_view);
         webView2.getSettings().setJavaScriptEnabled(true);
@@ -189,7 +189,7 @@ public class shengyuan extends  AppCompatActivity{
         webView2.getSettings().setDisplayZoomControls(false);
         webView2.getSettings().setUseWideViewPort(true);
         webView2.getSettings().setLoadWithOverviewMode(true);
-        webView2.loadUrl("http://b554.cn:8090/map/");
+        webView2.loadUrl("http://gm5s.tech:88/youxiu.html");
         View view3=mInflater.inflate(R.layout.web, null);
         WebView webView3 = view3.findViewById(R.id.web_view);
         webView3.getSettings().setJavaScriptEnabled(true);
@@ -198,7 +198,7 @@ public class shengyuan extends  AppCompatActivity{
         webView3.getSettings().setDisplayZoomControls(false);
         webView3.getSettings().setUseWideViewPort(true);
         webView3.getSettings().setLoadWithOverviewMode(true);
-        webView3.loadUrl("http://b554.cn:8090/map/");
+        webView3.loadUrl("http://gm5s.tech:88/pinkun.html");
         //添加页卡视图
         mViewList.add(view1);
         mViewList.add(view2);

@@ -182,7 +182,7 @@ public class xiaofei_Activity extends AppCompatActivity {
         webView1.getSettings().setDisplayZoomControls(false);
         webView1.getSettings().setUseWideViewPort(true);
         webView1.getSettings().setLoadWithOverviewMode(true);
-        webView1.loadUrl("http://b554.cn:8090/map/");
+        webView1.loadUrl("http://gm5s.tech:88/linecost12.html");
         View view2=mInflater.inflate(R.layout.web, null);
         WebView webView2 = view2.findViewById(R.id.web_view);
         webView2.getSettings().setJavaScriptEnabled(true);
@@ -191,7 +191,7 @@ public class xiaofei_Activity extends AppCompatActivity {
         webView2.getSettings().setDisplayZoomControls(false);
         webView2.getSettings().setUseWideViewPort(true);
         webView2.getSettings().setLoadWithOverviewMode(true);
-        webView2.loadUrl("http://b554.cn:8090/map/");
+        webView2.loadUrl("http://gm5s.tech:88/barcostgrade.html");
         View view3=mInflater.inflate(R.layout.web, null);
         WebView webView3 = view3.findViewById(R.id.web_view);
         webView3.getSettings().setJavaScriptEnabled(true);
@@ -200,14 +200,14 @@ public class xiaofei_Activity extends AppCompatActivity {
         webView3.getSettings().setDisplayZoomControls(false);
         webView3.getSettings().setUseWideViewPort(true);
         webView3.getSettings().setLoadWithOverviewMode(true);
-        webView3.loadUrl("http://b554.cn:8090/map/");
+        webView3.loadUrl("http://gm5s.tech:88/barcostprovince.html");
         //添加页卡视图
         mViewList.add(view1);
         mViewList.add(view2);
         mViewList.add(view3);
-        mTitleList.add("省份生源图谱");
-        mTitleList.add("优秀学子生源图谱");
-        mTitleList.add("贫困学子生源图谱");
+        mTitleList.add("总消费年趋势");
+        mTitleList.add("各年级学生年平均消费");
+        mTitleList.add("各省份学生年平均消费");
         mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);//设置tab模式
         mTabLayout.addTab(mTabLayout.newTab().setText(mTitleList.get(0)));//添加tab选项卡
         mTabLayout.addTab(mTabLayout.newTab().setText(mTitleList.get(1)));
