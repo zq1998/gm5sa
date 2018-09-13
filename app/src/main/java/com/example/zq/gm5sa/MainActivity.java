@@ -8,8 +8,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -23,6 +25,10 @@ import java.io.IOException;
 
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 
 
@@ -70,26 +76,70 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String account=accountEdit.getText().toString();
                 String password=passwordEdit.getText().toString();
-                if(account.equals("admin")&&password.equals("123456")){
-                    editor=pref.edit();
-                    if (rememmberPass.isChecked()){
-                        editor.putBoolean("remember_password",true);
-                        editor.putString("account",account);
-                        editor.putString("password",password);
-                    }
-                    else {
-                        editor.clear();
-                    }
-                    editor.apply();
-                    Intent intent=new Intent(MainActivity.this,shengyuan.class);
-                    startActivity(intent);
-                    finish();
+                if(account.isEmpty()||password.isEmpty()){
+                    Toast.makeText(MainActivity.this,"账户或密码不能为空",Toast.LENGTH_SHORT).show();
                 }
-                else {
-                    Toast.makeText(MainActivity.this,"error",Toast.LENGTH_LONG).show();
-                }
+                RequestBody requestBody=new FormBody.Builder()
+                        .add("account",account)
+                        .add("password",password)
+                        .build();
+                loadLogin(requestBody,account,password);
             }
         });
+    }
+    public static String stringToAscii(String value)
+    {
+        StringBuffer sbu = new StringBuffer();
+        char[] chars = value.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+            if(i != chars.length - 1)
+            {
+                sbu.append((int)chars[i]).append(",");
+            }
+            else {
+                sbu.append((int)chars[i]);
+            }
+        }
+        return sbu.toString();
+
+    }
+    private  void  loadLogin(RequestBody requestBody,final String account,final String password){
+        String addtress="http://gm5s.tech:88/login.php";
+        HttpUtil.sendOkHttpRequest1(addtress, requestBody, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Toast.makeText(MainActivity.this,"请求延迟",Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                final String apply1=response.body().string();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if(apply1.equals("abc\r\n")){
+                            editor=pref.edit();
+                            if (rememmberPass.isChecked()){
+                                editor.putBoolean("remember_password",true);
+                                editor.putString("account",account);
+                                editor.putString("password",password);
+                            }
+                            else {
+                                editor.clear();
+                            }
+                            editor.apply();
+                            Intent intent=new Intent(MainActivity.this,shengyuan.class);
+                            startActivity(intent);
+                            finish();
+                        }else if (apply1.equals("z\r\n")){
+                            Toast.makeText(MainActivity.this,"账户或密码错误",Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+
+            }
+        });
+
     }
     private void loadBingPic(){
         String requestBingPic="http://guolin.tech/api/bing_pic";
@@ -102,9 +152,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 final String bingPic=response.body().string();
-                SharedPreferences.Editor editor=PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit();
-                editor.putString("bing_pic",bingPic);
-                editor.apply();
+//                SharedPreferences.Editor editor=PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit();
+//                editor.putString("bing_pic",bingPic);
+//                editor.apply();
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {

@@ -191,27 +191,27 @@ public class jiuye_Activity extends AppCompatActivity {
         webView2.getSettings().setDisplayZoomControls(false);
         webView2.getSettings().setUseWideViewPort(true);
         webView2.getSettings().setLoadWithOverviewMode(true);
-        webView2.loadUrl("http://b554.cn:8090/map/");
+        webView2.loadUrl("http://gm5s.tech:88/jiuye.html");
         View view3=mInflater.inflate(R.layout.web, null);
-        WebView webView3 = view3.findViewById(R.id.web_view);
-        webView3.getSettings().setJavaScriptEnabled(true);
-        webView3.getSettings().setSupportZoom(true);
-        webView3.getSettings().setBuiltInZoomControls(true);
-        webView3.getSettings().setDisplayZoomControls(false);
-        webView3.getSettings().setUseWideViewPort(true);
-        webView3.getSettings().setLoadWithOverviewMode(true);
-        webView3.loadUrl("http://b554.cn:8090/map/");
+//        WebView webView3 = view3.findViewById(R.id.web_view);
+//        webView3.getSettings().setJavaScriptEnabled(true);
+//        webView3.getSettings().setSupportZoom(true);
+//        webView3.getSettings().setBuiltInZoomControls(true);
+//        webView3.getSettings().setDisplayZoomControls(false);
+//        webView3.getSettings().setUseWideViewPort(true);
+//        webView3.getSettings().setLoadWithOverviewMode(true);
+//        webView3.loadUrl("http://b554.cn:8090/map/");
         //添加页卡视图
         mViewList.add(view1);
         mViewList.add(view2);
-        mViewList.add(view3);
+//        mViewList.add(view3);
         mTitleList.add("就业去向可视化");
-        mTitleList.add("优秀学子生源图谱");
-        mTitleList.add("贫困学子生源图谱");
+        mTitleList.add("就业图谱");
+//        mTitleList.add("贫困学子生源图谱");
         mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);//设置tab模式
         mTabLayout.addTab(mTabLayout.newTab().setText(mTitleList.get(0)));//添加tab选项卡
         mTabLayout.addTab(mTabLayout.newTab().setText(mTitleList.get(1)));
-        mTabLayout.addTab(mTabLayout.newTab().setText(mTitleList.get(2)));
+//        mTabLayout.addTab(mTabLayout.newTab().setText(mTitleList.get(2)));
         jiuye_Activity.MyPagerAdapter mAdapter = new jiuye_Activity.MyPagerAdapter(mViewList);
         mViewPager.setAdapter(mAdapter);//给ViewPager设置适配器
         mTabLayout.setupWithViewPager(mViewPager);//将TabLayout和ViewPager关联起来。
