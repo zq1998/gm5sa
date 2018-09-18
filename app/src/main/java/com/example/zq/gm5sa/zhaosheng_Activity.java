@@ -108,7 +108,7 @@ public class zhaosheng_Activity extends AppCompatActivity {
                         zhaosheng_Activity.this.finish();
                         break;
                     case R.id.nav_guanyu:
-                        Toast.makeText(zhaosheng_Activity.this,"中国石油大学  gm5s",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(zhaosheng_Activity.this,"Copyright© Give Me Five S \n We are all in this together",Toast.LENGTH_SHORT).show();
                         break;
                     default:
                         break;

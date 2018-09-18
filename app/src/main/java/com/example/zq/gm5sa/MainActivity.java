@@ -63,10 +63,10 @@ public class MainActivity extends AppCompatActivity {
         passwordEdit=(EditText)findViewById(R.id.password);
         rememmberPass=(CheckBox)findViewById(R.id.remember_pass);
         login=(Button)findViewById(R.id.login);
-        boolean isremember=pref.getBoolean("remember_password",false);
+        boolean isremember=pref.getBoolean("remember_password",true);
         if(isremember){
-            String account=pref.getString("account","");
-            String password=pref.getString("password","");
+            String account=pref.getString("account","admin");
+            String password=pref.getString("password","123456");
             accountEdit.setText(account);
             passwordEdit.setText(password);
             rememmberPass.setChecked(true);
