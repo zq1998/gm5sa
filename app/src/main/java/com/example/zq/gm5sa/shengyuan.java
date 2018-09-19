@@ -106,7 +106,7 @@ public class shengyuan extends  AppCompatActivity{
                         shengyuan.this.finish();
                         break;
                     case R.id.nav_guanyu:
-                        Toast.makeText(shengyuan.this,"中国石油大学  gm5s",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(shengyuan.this,"Copyright© Give Me Five S \n We are all in this together",Toast.LENGTH_SHORT).show();
                         break;
                     default:
                         break;
@@ -180,7 +180,7 @@ public class shengyuan extends  AppCompatActivity{
         webView1.getSettings().setDisplayZoomControls(false);
         webView1.getSettings().setUseWideViewPort(true);
         webView1.getSettings().setLoadWithOverviewMode(true);
-        webView1.loadUrl("http://gm5s.tech:88/all.html");
+        webView1.loadUrl("http://gm5s.tech:88/mapall.html");
         View view2=mInflater.inflate(R.layout.web, null);
         WebView webView2 = view2.findViewById(R.id.web_view);
         webView2.getSettings().setJavaScriptEnabled(true);
@@ -189,7 +189,7 @@ public class shengyuan extends  AppCompatActivity{
         webView2.getSettings().setDisplayZoomControls(false);
         webView2.getSettings().setUseWideViewPort(true);
         webView2.getSettings().setLoadWithOverviewMode(true);
-        webView2.loadUrl("http://gm5s.tech:88/youxiu.html");
+        webView2.loadUrl("http://gm5s.tech:88/barall.html");
         View view3=mInflater.inflate(R.layout.web, null);
         WebView webView3 = view3.findViewById(R.id.web_view);
         webView3.getSettings().setJavaScriptEnabled(true);
@@ -198,18 +198,54 @@ public class shengyuan extends  AppCompatActivity{
         webView3.getSettings().setDisplayZoomControls(false);
         webView3.getSettings().setUseWideViewPort(true);
         webView3.getSettings().setLoadWithOverviewMode(true);
-        webView3.loadUrl("http://gm5s.tech:88/pinkun.html");
+        webView3.loadUrl("http://gm5s.tech:88/mapyouxiu.html");
+        View view4=mInflater.inflate(R.layout.web, null);
+        WebView webView4 = view4.findViewById(R.id.web_view);
+        webView4.getSettings().setJavaScriptEnabled(true);
+        webView4.getSettings().setSupportZoom(true);
+        webView4.getSettings().setBuiltInZoomControls(true);
+        webView4.getSettings().setDisplayZoomControls(false);
+        webView4.getSettings().setUseWideViewPort(true);
+        webView4.getSettings().setLoadWithOverviewMode(true);
+        webView4.loadUrl("http://gm5s.tech:88/baryouxiu.html");
+        View view5=mInflater.inflate(R.layout.web, null);
+        WebView webView5 = view5.findViewById(R.id.web_view);
+        webView5.getSettings().setJavaScriptEnabled(true);
+        webView5.getSettings().setSupportZoom(true);
+        webView5.getSettings().setBuiltInZoomControls(true);
+        webView5.getSettings().setDisplayZoomControls(false);
+        webView5.getSettings().setUseWideViewPort(true);
+        webView5.getSettings().setLoadWithOverviewMode(true);
+        webView5.loadUrl("http://gm5s.tech:88/mappinkun.html");
+        View view6=mInflater.inflate(R.layout.web, null);
+        WebView webView6 = view6.findViewById(R.id.web_view);
+        webView6.getSettings().setJavaScriptEnabled(true);
+        webView6.getSettings().setSupportZoom(true);
+        webView6.getSettings().setBuiltInZoomControls(true);
+        webView6.getSettings().setDisplayZoomControls(false);
+        webView6.getSettings().setUseWideViewPort(true);
+        webView6.getSettings().setLoadWithOverviewMode(true);
+        webView6.loadUrl("http://gm5s.tech:88/barpinkun.html");
         //添加页卡视图
         mViewList.add(view1);
         mViewList.add(view2);
         mViewList.add(view3);
+        mViewList.add(view4);
+        mViewList.add(view5);
+        mViewList.add(view6);
         mTitleList.add("省份生源图谱");
+        mTitleList.add("省份生源统计图");
         mTitleList.add("优秀学子生源图谱");
+        mTitleList.add("优秀学子生源统计图");
         mTitleList.add("贫困学子生源图谱");
+        mTitleList.add("贫困学子生源统计图");
         mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);//设置tab模式
         mTabLayout.addTab(mTabLayout.newTab().setText(mTitleList.get(0)));//添加tab选项卡
         mTabLayout.addTab(mTabLayout.newTab().setText(mTitleList.get(1)));
         mTabLayout.addTab(mTabLayout.newTab().setText(mTitleList.get(2)));
+        mTabLayout.addTab(mTabLayout.newTab().setText(mTitleList.get(3)));//添加tab选项卡
+        mTabLayout.addTab(mTabLayout.newTab().setText(mTitleList.get(4)));
+        mTabLayout.addTab(mTabLayout.newTab().setText(mTitleList.get(5)));
         shengyuan.MyPagerAdapter mAdapter = new shengyuan.MyPagerAdapter(mViewList);
         mViewPager.setAdapter(mAdapter);//给ViewPager设置适配器
         mTabLayout.setupWithViewPager(mViewPager);//将TabLayout和ViewPager关联起来。

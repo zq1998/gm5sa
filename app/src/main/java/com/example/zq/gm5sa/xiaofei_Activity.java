@@ -108,7 +108,7 @@ public class xiaofei_Activity extends AppCompatActivity {
                         xiaofei_Activity.this.finish();
                         break;
                     case R.id.nav_guanyu:
-                        Toast.makeText(xiaofei_Activity.this,"中国石油大学  gm5s",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(xiaofei_Activity.this,"Copyright© Give Me Five S \n We are all in this together",Toast.LENGTH_SHORT).show();
                         break;
                     default:
                         break;
@@ -191,7 +191,7 @@ public class xiaofei_Activity extends AppCompatActivity {
         webView2.getSettings().setDisplayZoomControls(false);
         webView2.getSettings().setUseWideViewPort(true);
         webView2.getSettings().setLoadWithOverviewMode(true);
-        webView2.loadUrl("http://gm5s.tech:88/barcostgrade.html");
+        webView2.loadUrl("http://gm5s.tech:88/barxiaofeinianji.html");
         View view3=mInflater.inflate(R.layout.web, null);
         WebView webView3 = view3.findViewById(R.id.web_view);
         webView3.getSettings().setJavaScriptEnabled(true);
@@ -200,18 +200,30 @@ public class xiaofei_Activity extends AppCompatActivity {
         webView3.getSettings().setDisplayZoomControls(false);
         webView3.getSettings().setUseWideViewPort(true);
         webView3.getSettings().setLoadWithOverviewMode(true);
-        webView3.loadUrl("http://gm5s.tech:88/barcostprovince.html");
+        webView3.loadUrl("http://gm5s.tech:88/linexiaofeisex.html");
+        View view4=mInflater.inflate(R.layout.web, null);
+        WebView webView4 = view4.findViewById(R.id.web_view);
+        webView4.getSettings().setJavaScriptEnabled(true);
+        webView4.getSettings().setSupportZoom(true);
+        webView4.getSettings().setBuiltInZoomControls(true);
+        webView4.getSettings().setDisplayZoomControls(false);
+        webView4.getSettings().setUseWideViewPort(true);
+        webView4.getSettings().setLoadWithOverviewMode(true);
+        webView4.loadUrl("http://gm5s.tech:88/barxiaofeijiguan.html");
         //添加页卡视图
         mViewList.add(view1);
         mViewList.add(view2);
         mViewList.add(view3);
-        mTitleList.add("总消费年趋势");
-        mTitleList.add("各年级学生年平均消费");
+        mViewList.add(view4);
+        mTitleList.add("全体学生年消费趋势");
+        mTitleList.add("各年级学生消费");
+        mTitleList.add("男女学生年消费趋势");
         mTitleList.add("各省份学生年平均消费");
         mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);//设置tab模式
         mTabLayout.addTab(mTabLayout.newTab().setText(mTitleList.get(0)));//添加tab选项卡
         mTabLayout.addTab(mTabLayout.newTab().setText(mTitleList.get(1)));
         mTabLayout.addTab(mTabLayout.newTab().setText(mTitleList.get(2)));
+        mTabLayout.addTab(mTabLayout.newTab().setText(mTitleList.get(3)));
         xiaofei_Activity.MyPagerAdapter mAdapter = new xiaofei_Activity.MyPagerAdapter(mViewList);
         mViewPager.setAdapter(mAdapter);//给ViewPager设置适配器
         mTabLayout.setupWithViewPager(mViewPager);//将TabLayout和ViewPager关联起来。
