@@ -1,2 +1,2 @@
-# gm5sa
-android project about the capus 
+# android project about the capus data
+
